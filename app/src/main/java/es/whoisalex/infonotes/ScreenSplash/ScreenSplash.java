@@ -40,4 +40,7 @@ public class ScreenSplash extends Activity {
 
     @Override
     public void onBackPressed() {}
+
 }
+
+

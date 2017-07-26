@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">InfoNotes</string>
     <string name="title_activity_maps">Map</string>
+    <string name="permission_request">Esta aplicacion necesita permisos de GPS.</string>
 </resources>
