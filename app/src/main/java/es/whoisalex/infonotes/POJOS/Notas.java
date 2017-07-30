@@ -1,28 +1,26 @@
 package es.whoisalex.infonotes.POJOS;
 
-import java.util.Date;
-
 /**
  * Created by Alex on 20/07/2017.
  */
 
 public class Notas {
 
-    private long id;
+    private long idNota;
     private String nombre;
     private String localidad;
     private String categoria;
-    private String date;
+    private String fecha;
     private String descripcion;
-    private long coordY;
-    private long coordX;
+    private double coordY;
+    private double coordX;
 
-    public Notas(long id, String nombre, String localidad, String categoria, String date, String descripcion, long coordY, long coordX) {
-        this.id = id;
+    public Notas(long idNota, String nombre, String localidad, String categoria, String fecha, String descripcion, long coordY, long coordX) {
+        this.idNota = idNota;
         this.nombre = nombre;
         this.localidad = localidad;
         this.categoria = categoria;
-        this.date = date;
+        this.fecha = fecha;
         this.descripcion = descripcion;
         this.coordY = coordY;
         this.coordX = coordX;
@@ -31,12 +29,10 @@ public class Notas {
     public Notas(){}
 
     public long getId() {
-        return id;
+        return idNota;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(long idNota) {this.idNota = idNota;}
 
     public String getNombre() {
         return nombre;
@@ -58,16 +54,14 @@ public class Notas {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+    public void setCategoria(String categoria) {this.categoria = categoria;}
 
     public String getDate() {
-        return date;
+        return fecha;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getDescripcion() {
@@ -78,30 +72,30 @@ public class Notas {
         this.descripcion = descripcion;
     }
 
-    public long getCoordY() {
+    public double getCoordY() {
         return coordY;
     }
 
-    public void setCoordY(long coordY) {
+    public void setCoordY(double coordY) {
         this.coordY = coordY;
     }
 
-    public long getCoordX() {
+    public double getCoordX() {
         return coordX;
     }
 
-    public void setCoordX(long coordX) {
+    public void setCoordX(double coordX) {
         this.coordX = coordX;
     }
 
     @Override
     public String toString() {
         return "Notas{" +
-                "id=" + id +
+                "id=" + idNota +
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", categoria='" + categoria + '\'' +
-                ", fecha=" + date +
+                ", fecha=" + fecha +
                 ", descripcion='" + descripcion + '\'' +
                 ", coordY=" + coordY +
                 ", coordX=" + coordX +

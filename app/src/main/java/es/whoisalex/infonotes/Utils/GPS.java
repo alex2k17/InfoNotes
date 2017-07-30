@@ -64,57 +64,68 @@ public class GPS extends Service implements LocationListener {
             //Network
             } else {
                 this.canGetLocation = true;
-                if (isNetworkEnabled) {
-                    try {
-                        locationManager.requestLocationUpdates(
-                                LocationManager.NETWORK_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-                        Log.d("Network", "Network");
-                        if (locationManager != null) {
-                            location = locationManager
-                                    .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                            if (location != null) {
-                                latitude = location.getLatitude();
-                                longitude = location.getLongitude();
-                            }
-                        }
+                getLocationGPS();
+                if (location==null){
+                    getLocationNetwork();
+                    Log.e("Network;Location", location.toString());
+                }else{
+                    Log.e("GPS;Location", location.toString());
+                }
 
-                    }catch (SecurityException e){
-                        e.printStackTrace();
-                    }
-                }
-                //GPS
-                if (isGPSEnabled) {
-                    try {
-                        if (location == null) {
-                            locationManager.requestLocationUpdates(
-                                    LocationManager.GPS_PROVIDER,
-                                    MIN_TIME_BW_UPDATES,
-                                    MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-                            Log.d("GPS Activado", "GPS Activado");
-                            if (locationManager != null) {
-                                location = locationManager
-                                        .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                                if (location != null) {
-                                    latitude = location.getLatitude();
-                                    longitude = location.getLongitude();
-                                }
-                            }
-                        }
-                    }catch(SecurityException e){
-                        e.printStackTrace();
-                    }
-                }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return location;
     }
 
+    public void getLocationGPS(){
+        if (isGPSEnabled) {
+            try {
+                if (location == null) {
+                    locationManager.requestLocationUpdates(
+                            LocationManager.GPS_PROVIDER,
+                            MIN_TIME_BW_UPDATES,
+                            MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                    Log.d("GPS CLASS:", "GPS Activado");
+                    if (locationManager != null) {
+                        location = locationManager
+                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                        if (location != null) {
+                            latitude = location.getLatitude();
+                            longitude = location.getLongitude();
+                        }
+                    }
+                }
+            }catch(SecurityException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void getLocationNetwork(){
+        if (isNetworkEnabled) {
+            try {
+                locationManager.requestLocationUpdates(
+                        LocationManager.NETWORK_PROVIDER,
+                        MIN_TIME_BW_UPDATES,
+                        MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                Log.d("GPS CLASS:", "Network");
+                if (locationManager != null) {
+                    location = locationManager
+                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    if (location != null) {
+                        latitude = location.getLatitude();
+                        longitude = location.getLongitude();
+                    }
+                }
+
+            }catch (SecurityException e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void stopGPS() {
         if (locationManager != null) {
@@ -122,29 +133,23 @@ public class GPS extends Service implements LocationListener {
         }
     }
 
-
     public double getLatitude() {
         if (location != null) {
             latitude = location.getLatitude();
         }
-
         return latitude;
     }
-
 
     public double getLongitude() {
         if (location != null) {
             longitude = location.getLongitude();
         }
-
         return longitude;
     }
-
 
     public boolean canGetLocation() {
         return this.canGetLocation;
     }
-
 
     public void showSettingsAlert() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
@@ -167,7 +172,6 @@ public class GPS extends Service implements LocationListener {
         alertDialog.show();
     }
 
-
     @Override
     public void onProviderDisabled(String provider) {
     }
@@ -184,7 +188,6 @@ public class GPS extends Service implements LocationListener {
            longitude = location.getLongitude();
            delegate.update();
        }
-
     }
 
     @Override
@@ -195,5 +198,4 @@ public class GPS extends Service implements LocationListener {
     public IBinder onBind(Intent arg0) {
         return null;
     }
-
 }
