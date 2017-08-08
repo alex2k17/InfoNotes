@@ -1,3 +1,4 @@
+
 package es.whoisalex.infonotes.ScreenSplash;
 
 import android.Manifest;
@@ -68,7 +69,6 @@ public class ScreenSplash extends Activity implements updateGPS {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_screensplash);
         gson = new Gson();
-
     }
 
     @Override
@@ -215,6 +215,3 @@ public class ScreenSplash extends Activity implements updateGPS {
     public void update() {
     }
 }
-
-
-

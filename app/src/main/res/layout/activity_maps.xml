@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -5,4 +7,54 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.whoisalex.infonotes.Activitys.MapsActivity" />
+    tools:context="es.whoisalex.infonotes.Activitys.MapsActivity" >
+
+    <com.scalified.fab.ActionButton xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/GPSLOC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="10dp"
+        fab:image="@drawable/gps"
+        fab:type="MINI"
+        fab:image_size="24dp"
+        fab:button_color="@color/blancotrans"
+        fab:button_colorPressed="#757575"
+        fab:shadow_color="#757575"
+        fab:shadow_radius="1.0dp"
+        fab:shadow_xOffset="0.5dp"
+        fab:shadow_yOffset="1.0dp"
+        />
+
+    <ToggleButton
+        android:id="@+id/toggleType"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_gravity="right"
+        android:background="@drawable/check"
+        android:layout_margin="10dp"
+        android:textOn=""
+        android:textOff=""
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+    <com.scalified.fab.ActionButton xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/addNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="20dp"
+        fab:image="@drawable/fab_plus_icon"
+        fab:type="DEFAULT"
+        fab:image_size="24dp"
+        fab:button_color="@color/fab_material_blue_500"
+        fab:button_colorPressed="@color/fab_material_blue_grey_500"
+        fab:shadow_color="#757575"
+        fab:shadow_radius="1.0dp"
+        fab:shadow_xOffset="0.5dp"
+        fab:shadow_yOffset="1.0dp"
+        />
+
+    </fragment>
+

@@ -14,6 +14,7 @@ public class Constantes {
     public static final String GET_ALL = ENDPOINT + "obtener_notas.php";
     public static final String GET_NOTAS_BY_LOCALIDAD = ENDPOINT + "obtener_notabyloc.php";
     public static final String GET_NUM_NOTAS_BY_LOCALIDAD = ENDPOINT + "num_notas.php";
+    public static final String ADD_NOTA = ENDPOINT +"add_nota.php";
 
     public static final String EXTRA_LOCALIDAD = "LOCALIDAD";
 

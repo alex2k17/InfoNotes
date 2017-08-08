@@ -1,3 +1,4 @@
+
 package es.whoisalex.infonotes.Utils;
 
 
@@ -61,7 +62,7 @@ public class GPS extends Service implements LocationListener {
 
             if (!isGPSEnabled && !isNetworkEnabled) {
 
-            //Network
+                //Network
             } else {
                 this.canGetLocation = true;
                 getLocationGPS();
@@ -173,26 +174,23 @@ public class GPS extends Service implements LocationListener {
     }
 
     @Override
-    public void onProviderDisabled(String provider) {
-    }
+    public void onProviderDisabled(String provider) {}
 
     @Override
-    public void onProviderEnabled(String provider) {
-    }
+    public void onProviderEnabled(String provider) {}
 
     @Override
     public void onLocationChanged(Location location) {
-       if (location!=null) {
-           this.location = location;
-           latitude = location.getLatitude();
-           longitude = location.getLongitude();
-           delegate.update();
-       }
+        if (location!=null) {
+            this.location = location;
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+            delegate.update();
+        }
     }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-    }
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
 
     @Override
     public IBinder onBind(Intent arg0) {
